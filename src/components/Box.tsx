@@ -1,6 +1,7 @@
 import { type ReactElement, type ReactNode } from "react";
 
 interface BoxProps {
+  children?: ReactNode;
   form:
     | [
         width?: number | undefined,
@@ -19,6 +20,7 @@ export function Box(props: BoxProps): ReactElement {
     <mesh castShadow receiveShadow {...props}>
       <boxGeometry args={props.form} />
       <meshToonMaterial color={props.color}></meshToonMaterial>
+      {props.children}
     </mesh>
   );
 }

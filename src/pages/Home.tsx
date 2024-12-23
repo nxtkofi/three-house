@@ -15,5 +15,4 @@ export function Home(props: HomeProps): ReactElement {
       </BasicEnvironment>
     </Canvas>
   );
-  -0.03;
 }

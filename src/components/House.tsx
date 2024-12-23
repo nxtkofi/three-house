@@ -2,6 +2,7 @@ import { type ReactElement, type ReactNode } from "react";
 import { Box } from "./Box";
 import { AccumulativeShadows, RandomizedLight } from "@react-three/drei";
 import { Carpet } from "./Carpet";
+import { Paintings } from "./Paintings";
 
 export function House(): ReactElement {
   return (
@@ -9,8 +10,9 @@ export function House(): ReactElement {
       <Box position={[0, 0.1, 0]} form={[4, 0.1, 6]} color={"#422f2d"} />
       <Box position={[0, 1, 3]} form={[4, 1.9, 0.1]} color={"#422f2d"} />
       <Box position={[2, 1, 0]} form={[0.1, 1.9, 6]} color={"#422f2d"} />
-      <Carpet/>
-            <AccumulativeShadows
+      <Carpet />
+      <Paintings/>
+      <AccumulativeShadows
         frames={80}
         color="black"
         opacity={1}
