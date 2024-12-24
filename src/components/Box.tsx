@@ -1,26 +1,29 @@
 import { type ReactElement, type ReactNode } from "react";
+import { MeshProps } from "@react-three/fiber";
 
-interface BoxProps {
+interface BoxProps extends MeshProps {
   children?: ReactNode;
-  form:
-    | [
-        width?: number | undefined,
-        height?: number | undefined,
-        depth?: number | undefined,
-        widthSegments?: number | undefined,
-        heightSegments?: number | undefined,
-        depthSegments?: number | undefined,
-      ]
-    | undefined;
+  form?: [
+    width?: number,
+    height?: number,
+    depth?: number,
+    widthSegments?: number,
+    heightSegments?: number,
+    depthSegments?: number,
+  ];
   color: string;
 }
-
-export function Box(props: BoxProps): ReactElement {
+export function Box({
+  children,
+  form,
+  color,
+  ...props
+}: BoxProps): ReactElement {
   return (
-    <mesh castShadow receiveShadow {...props}>
-      <boxGeometry args={props.form} />
-      <meshToonMaterial color={props.color}></meshToonMaterial>
-      {props.children}
+    <mesh {...props}>
+      <boxGeometry args={form} />
+      <meshToonMaterial color={color}></meshToonMaterial>
+      {children}
     </mesh>
   );
 }
